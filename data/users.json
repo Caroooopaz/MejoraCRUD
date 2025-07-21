@@ -5,7 +5,32 @@
       "fullName": "Nicholas Vidal",
       "email": "nicholas.vidal@example.com",
       "phone": "075 314 46 10",
-      "profileImage": "https://randomuser.me/api/portraits/men/12.jpg"
+      "profileImage": "https://randomuser.me/api/portraits/men/12.jpg",
+      "favorite": true
+    },
+    {
+      "id": "42c8",
+      "fullName": "Sibylla Lippert",
+      "email": "sibylla.lippert@example.com",
+      "phone": "0169-3333546",
+      "profileImage": "https://randomuser.me/api/portraits/women/59.jpg",
+      "favorite": true
+    },
+    {
+      "id": "9cb1",
+      "fullName": "Saranda Van de Poll",
+      "email": "saranda.vandepoll@example.com",
+      "phone": "(040) 4165312",
+      "profileImage": "https://randomuser.me/api/portraits/women/74.jpg",
+      "favorite": true
+    },
+    {
+      "id": "0b58",
+      "fullName": "Ilhan Van Heugten",
+      "email": "ilhan.vanheugten@example.com",
+      "phone": "(0632) 426087",
+      "profileImage": "https://randomuser.me/api/portraits/men/64.jpg",
+      "favorite": true
     }
   ]
 }

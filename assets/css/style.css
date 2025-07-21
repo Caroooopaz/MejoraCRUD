@@ -85,3 +85,182 @@
     width: 1rem;
     height: 1rem;
 }
+
+/* Estilo para tarjetas de usuario marcadas como favoritas */
+.user-card.favorite {
+    border: 2px solid #ffc107; /* Borde amarillo (color de Bootstrap 'warning') */
+    box-shadow: 0 0.5rem 1rem rgba(255, 193, 7, 0.25) !important; /* Sombra sutil amarilla */
+}
+
+/* Para el icono de estrella en el navbar */
+.navbar-text .fa-star {
+    color: #ffc107; /* Asegura que la estrella sea amarilla */
+}
+
+/* assets/css/style.css */
+
+/* --- Estilos Generales --- */
+body {
+    background-color: #f8f9fa; /* Color de fondo suave para la página */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- Navbar (barra de navegación) --- */
+.navbar.bg-primary {
+    background-color: #0056b3 !important; /* Azul más oscuro para la barra de navegación */
+    border-bottom: 3px solid #004085; /* Borde inferior para un toque extra */
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.navbar-text .badge {
+    vertical-align: middle; /* Alinea el badge con el texto */
+    font-size: 0.9em;
+    padding: 0.4em 0.6em;
+}
+
+/* --- Contenedor Principal (Main Content) --- */
+.container.my-5 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* --- Formularios y Modales --- */
+.form-section,
+.modal-content {
+    border-radius: 0.75rem; /* Bordes más redondeados */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+}
+
+.form-label {
+    font-weight: 500;
+    color: #343a40;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: translateY(-1px); /* Efecto ligero al pasar el mouse */
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529; /* Color de texto oscuro para que se vea bien en amarillo */
+}
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+
+/* --- Tarjetas de Usuario (User Cards) --- */
+.user-card {
+    border: none; /* Elimina el borde por defecto de la tarjeta */
+    border-radius: 0.75rem; /* Bordes más redondeados */
+    overflow: hidden; /* Asegura que la imagen redondeada no se salga */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+}
+
+.user-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important; /* Sombra más pronunciada al pasar el mouse */
+}
+
+.user-card .card-body {
+    padding: 1.5rem; /* Más espacio interno */
+}
+
+.user-card img.rounded-circle {
+    border: 3px solid #007bff !important; /* Borde más distintivo para la imagen de perfil */
+    padding: 3px; /* Espacio entre el borde y la imagen */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sombra ligera en la imagen */
+}
+
+.user-card .card-title {
+    color: #343a40; /* Color de texto para el nombre */
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.user-card .card-text.text-muted {
+    font-size: 0.875rem;
+    color: #6c757d !important;
+}
+
+.user-card .mt-auto {
+    padding-top: 1rem; /* Espacio encima de los botones */
+}
+
+/* Estilo para tarjetas de usuario marcadas como favoritas */
+.user-card.favorite {
+    border: 2px solid #ffc107; /* Borde amarillo (color de Bootstrap 'warning') */
+    box-shadow: 0 0.5rem 1rem rgba(255, 193, 7, 0.25) !important; /* Sombra sutil amarilla */
+}
+
+/* Efecto para el badge de favoritos en el navbar */
+.navbar-text .fa-star {
+    color: #ffc107; /* Asegura que la estrella sea amarilla */
+}
+
+/* --- Toast Notifications --- */
+#mainToast {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+}
+
+/* --- Placeholder para la imagen de perfil --- */
+/* Si tu placeholder es distinto, ajusta el color de fondo */
+.profile-img-preview {
+    background-color: #e9ecef; /* Un color de fondo más neutral para el placeholder */
+    border: 1px dashed #ced4da; /* Borde punteado para indicar que es un placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.8rem;
+    height: 100px; /* Asegura un tamaño consistente */
+    width: 100px;
+}

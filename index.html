@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Usuarios Simple</title>
-    <!-- Bootstrap CSS -->
+    <title>CRUD Usuarios Avanzado</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <span class="navbar-brand"><i class="fas fa-users me-2"></i>Gestión de Usuarios</span>
+            <span class="navbar-brand fs-4"><i class="fas fa-users me-2"></i>Gestión de Usuarios</span>
+            <span class="navbar-text text-white">
+                <i class="fas fa-star text-warning me-1"></i> Favoritos: <span class="badge bg-warning text-dark" id="favoriteCount">0</span>
+            </span>
         </div>
     </nav>
 
     <div class="container mt-4">
         <div class="row">
-            <!-- Formulario -->
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
+                <div class="card shadow border-0">
+                    <div class="card-header bg-primary text-white py-3">
                         <h5 class="mb-0"><i class="fas fa-user-plus me-2"></i>Registro de Usuario</h5>
                     </div>
                     <div class="card-body">
@@ -33,36 +33,39 @@
                             <div class="text-center mb-3">
                                 <img id="profileImage"
                                     src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png"
-                                    class="rounded-circle img-thumbnail" width="100" alt="Foto de perfil">
+                                    class="rounded-circle img-thumbnail border border-primary p-1" width="100"
+                                    alt="Foto de perfil">
                             </div>
 
-                            <!-- Nombre Completo -->
                             <div class="mb-3">
-                                <label for="fullName" class="form-label">Nombre Completo *</label>
-                                <input type="text" class="form-control" id="fullName" required>
+                                <label for="fullName" class="form-label fw-bold">Nombre Completo <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fullName" required
+                                    placeholder="Ej: Juan Pérez">
                             </div>
 
-                            <!-- Email -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email *</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <label for="email" class="form-label fw-bold">Email <span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" required
+                                    placeholder="Ej: juan.perez@example.com">
                             </div>
 
-                            <!-- Teléfono -->
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Teléfono *</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <label for="phone" class="form-label fw-bold">Teléfono <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" required
+                                    placeholder="Ej: +56 9 1234 5678">
                             </div>
 
-                            <!-- Botones -->
-                            <div class="d-grid gap-2">
-                                <button type="button" class="btn btn-success" id="autoFillBtn">
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="button" class="btn btn-success btn-lg" id="autoFillBtn">
                                     <i class="fas fa-magic me-2"></i>Auto-rellenar
                                 </button>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-lg">
                                     <i class="fas fa-save me-2"></i>Guardar Usuario
                                 </button>
-                                <button type="button" class="btn btn-secondary" id="clearBtn">
+                                <button type="button" class="btn btn-secondary btn-lg" id="clearBtn">
                                     <i class="fas fa-eraser me-2"></i>Limpiar
                                 </button>
                             </div>
@@ -72,28 +75,30 @@
 
             </div>
 
-            <!-- Lista de Usuarios -->
             <div class="col-lg-8 col-md-6">
-                <div class="card shadow">
-                    <div class="card-header bg-success text-white d-flex justify-content-between">
+                <div class="card shadow border-0">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center py-3">
                         <h5 class="mb-0"><i class="fas fa-users me-2"></i>Lista de Usuarios</h5>
-                        <span class="badge bg-light text-dark" id="userCount">0 usuarios</span>
+                        <span class="badge bg-light text-success fs-6" id="userCount">0 usuarios</span>
                     </div>
                     <div class="card-body">
-                        <!-- Buscador y botones de orden -->
-                        <div class="mb-3 d-flex justify-content-between align-items-center">
-                            <!-- Input para buscar por nombre o email -->
-                            <input type="text" class="form-control w-50" id="searchInput"
-                                placeholder="Buscar por nombre o email">
-                            <div class="btn-group ms-2">
-                                <button class="btn btn-outline-secondary" id="sortAsc">Ordenar A-Z</button>
-                                <button class="btn btn-outline-secondary" id="sortDesc">Ordenar Z-A</button>
+                        <div class="mb-3 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center">
+                            <input type="text" class="form-control flex-grow-1 mb-2 mb-md-0 me-md-2" id="searchInput"
+                                placeholder="Buscar por nombre o email...">
+                            <div class="btn-group">
+                                <button class="btn btn-outline-secondary" id="sortAsc"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Ordenar de A a Z">
+                                    <i class="fas fa-sort-alpha-down"></i> A-Z
+                                </button>
+                                <button class="btn btn-outline-secondary" id="sortDesc"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Ordenar de Z a A">
+                                    <i class="fas fa-sort-alpha-up"></i> Z-A
+                                </button>
                             </div>
                         </div>
-                        <!-- Contenedor de usuarios -->
-                        <div id="usersList" class="row">
+                        <div id="usersList" class="row g-3">
                             <div class="col-12 text-center text-muted py-5" id="emptyMessage">
-                                <i class="fas fa-user-friends fa-3x mb-3"></i>
+                                <i class="fas fa-user-friends fa-3x mb-3 text-secondary"></i>
                                 <h5>No hay usuarios registrados</h5>
                                 <p>Utiliza el formulario para agregar tu primer usuario</p>
                             </div>
@@ -103,39 +108,37 @@
             </div>
 
         </div>
-
-
     </div>
 
-    <!-- Modal Editar Usuario -->
-    <div class="modal fade" id="editModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title"><i class="fas fa-edit me-2"></i>Editar Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-warning text-dark py-3">
+                    <h5 class="modal-title" id="editModalLabel"><i class="fas fa-edit me-2"></i>Editar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="editForm" novalidate>
                         <input type="hidden" id="editUserIndex">
 
                         <div class="text-center mb-3">
-                            <img id="editProfileImage" src="" class="rounded-circle img-thumbnail" width="80"
+                            <img id="editProfileImage" src=""
+                                class="rounded-circle img-thumbnail border border-warning p-1" width="80"
                                 alt="Foto de perfil">
                         </div>
 
                         <div class="mb-3">
-                            <label for="editFullName" class="form-label">Nombre Completo</label>
+                            <label for="editFullName" class="form-label fw-bold">Nombre Completo</label>
                             <input type="text" class="form-control" id="editFullName" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="editEmail" class="form-label">Email</label>
+                            <label for="editEmail" class="form-label fw-bold">Email</label>
                             <input type="email" class="form-control" id="editEmail" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="editPhone" class="form-label">Teléfono</label>
+                            <label for="editPhone" class="form-label fw-bold">Teléfono</label>
                             <input type="tel" class="form-control" id="editPhone" required>
                         </div>
                     </form>
@@ -148,16 +151,17 @@
         </div>
     </div>
 
-    <!-- Modal Confirmar Eliminación -->
-    <div class="modal fade" id="deleteModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title"><i class="fas fa-trash me-2"></i>Eliminar Usuario</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-danger text-white py-3">
+                    <h5 class="modal-title" id="deleteModalLabel"><i class="fas fa-trash-alt me-2"></i>Eliminar Usuario</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Seguro que deseas eliminar a <strong id="deleteUserName"></strong>?</p>
+                    <p class="fs-5">¿Seguro que deseas eliminar a <strong id="deleteUserName" class="text-danger"></strong>?</p>
+                    <p class="text-muted small">Esta acción no se puede deshacer.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -167,26 +171,17 @@
         </div>
     </div>
 
-    <!-- Toast Notificaciones -->
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div id="mainToast" class="toast align-items-center text-bg-primary border-0" role="alert">
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="mainToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body" id="toastMessage">Notificación</div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
-    <!-- 
-    NOTA EDUCATIVA:
-    No necesitamos incluir "api.js" aquí porque "scripts.js" ya lo está importando usando:
-    import { getRandomUser } from './api.js';
-    Gracias a "type=module", el navegador carga automáticamente las dependencias de scripts.js.
--->
     <script type="module" src="assets/js/scripts.js"></script>
     <script type="module" src="assets/js/filter.js"></script>
 </body>
-
 </html>
