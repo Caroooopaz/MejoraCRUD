@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "3758",
+      "fullName": "Nicholas Vidal",
+      "email": "nicholas.vidal@example.com",
+      "phone": "075 314 46 10",
+      "profileImage": "https://randomuser.me/api/portraits/men/12.jpg"
+    }
+  ]
+}
